@@ -1874,9 +1874,22 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     StatusCodeView.prototype.initialize = function() {};
 
     StatusCodeView.prototype.render = function() {
-      var template;
+      var signatureModel, signatureView, template;
       template = this.template();
       $(this.el).html(template(this.model));
+      signatureModel = {
+        sampleJSON: this.model.sampleJSON,
+        signature: this.model.signature
+      };
+      if (this.model.sampleJSON) {
+        signatureView = new SignatureView({
+          model: signatureModel,
+          tagName: 'div'
+        });
+        $('.model-signature', $(this.el)).append(signatureView.render().el);
+      } else {
+        $('.model-signature', $(this.el)).html(this.model.signature);
+      }
       return this;
     };
 
