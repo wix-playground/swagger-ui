@@ -34,6 +34,7 @@ class OperationView extends Backbone.View
     contentTypeModel.produces = @model.produces
 
     for param in @model.parameters
+      param.isHook = @model.isHook
       type = param.type || param.dataType
       if type.toLowerCase() == 'file'
         if !contentTypeModel.consumes

@@ -8,12 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wordnik/swagger-ui.git"
-  },
-  "author": {
-    "name": "Tony Tam",
-    "email": "fehguy@gmail.com",
-    "url": "http://developer.wordnik.com"
+    "url": "https://github.com/wix/swagger-ui.git"
   },
   "license": "Apache",
   "readmeFilename": "README.md",

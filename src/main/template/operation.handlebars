@@ -21,11 +21,34 @@
         <h4>Implementation Notes</h4>
         <p>{{{notes}}}</p>
         {{/if}}
+        {{#if isHook}}
+            {{#if parameters}}
+                <h4>Webhook Parameters</h4>
+                <table class='fullwidth'>
+                    <thead>
+                    <tr>
+                        <th style="width: 100px; max-width: 100px">Parameter</th>
+                        <th style="width: 200px; max-width: 200px">Description</th>
+                        <th style="width: 100px; max-width: 100px">Parameter Type</th>
+                    </tr>
+                    </thead>
+                    <tbody class="operation-params">
+
+                    </tbody>
+                </table>
+                {{#if type}}
+                    <h4>Webhook Data</h4>
+                    <p><span class="model-signature" /></p>
+                    <br/>
+                    <div class="response-content-type" />
+               {{/if}}
+            {{/if}}
+        {{else}}
         {{#if type}}
-          <h4>Response Class</h4>
-          <p><span class="model-signature" /></p>
-          <br/>
-          <div class="response-content-type" />
+            <h4>Response Class</h4>
+            <p><span class="model-signature" /></p>
+            <br/>
+            <div class="response-content-type" />
         {{/if}}
         <form accept-charset='UTF-8' class='sandbox'>
           <div style='margin:0;padding:0;display:inline'></div>
@@ -82,5 +105,6 @@
           <div class='block response_headers'></div>
         </div>
       </div>
+        {{/if}}
     </li>
   </ul>

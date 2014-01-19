@@ -11,7 +11,7 @@ class ParameterView extends Backbone.View
 
     signatureModel =
       sampleJSON: @model.sampleJSON
-      isParam: true
+      isParam: !@model.isHeader
       signature: @model.signature
 
     if @model.sampleJSON
@@ -42,16 +42,19 @@ class ParameterView extends Backbone.View
 
   # Return an appropriate template based on if the parameter is a list, readonly, required
   template: ->
-    if @model.isList
-      Handlebars.templates.param_list
+    if @model.isHook
+      Handlebars.templates.hook_list
     else
-      if @options.readOnly
-        if @model.required
-          Handlebars.templates.param_readonly_required
-        else
-          Handlebars.templates.param_readonly
+      if @model.isList
+        Handlebars.templates.param_list
       else
-        if @model.required
-          Handlebars.templates.param_required
+        if @options.readOnly
+          if @model.required
+            Handlebars.templates.param_readonly_required
+          else
+            Handlebars.templates.param_readonly
         else
-          Handlebars.templates.param
+          if @model.required
+            Handlebars.templates.param_required
+          else
+            Handlebars.templates.param

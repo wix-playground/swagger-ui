@@ -841,6 +841,41 @@
                                 }
                             }
                         }
+                        li.operation.hook {
+                          div.heading {
+                            background-color: #e7f6ec;
+                            border: 1px solid #c3e8d1;
+                            h3 {
+                              span.http_method {
+                                a {
+                                  background-color: #10a54a;
+                                }
+                              }
+                            }
+                            ul.options {
+                              li {
+                                border-right: 1px solid #dddddd;
+                                border-right-color: #c3e8d1;
+                                color: #10a54a;
+                                a {
+                                  color: #10a54a;
+                                }
+                              }
+                            }
+                          }
+                          div.content {
+                            background-color: #ebf7f0;
+                            border: 1px solid #c3e8d1;
+                            h4 {
+                              color: #10a54a;
+                            }
+                            div.sandbox_header {
+                              a {
+                                color: #6fc992;
+                              }
+                            }
+                          }
+                        }
                         li.operation.patch {
                             div.heading {
                                 background-color: #FCE9E3;
@@ -915,7 +950,7 @@
                             }
                         }
                         li.operation {
-                            &.get, &.post, &.head, &.put, &.patch, &.delete {
+                            &.get, &.post, &.head, &.put, &.hook, &.put, &.patch, &.delete {
                                 div.content {
                                     border-top: none;
                                 }
